@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean definitions here -->
+	<bean name="emp1" class="com.technoelevate.springcore.assignment.Employee">
+		<property name="id" value="1" />
+		<property name="name" value="Reshma" />
+		<property name="designation" value="software enginner" />
+		<property name="address" ref="current" />
+	</bean>
+
+	<bean name="permanent" class="com.technoelevate.springcore.assignment.PermanentAddress"></bean>
+
+	<bean name="current" class="com.technoelevate.springcore.assignment.CurrentAddress"></bean>
+
+	<bean name="emp2" class="com.technoelevate.springcore.assignment.Employee">
+		<property name="id" value="2" />
+		<property name="name" value="Vaishnavi" />
+		<property name="designation" value="software enginner" />
+		<property name="address" ref="permanent" />
+	</bean>
+	<bean class="com.technoelevate.springcore.assignment.Employee">
+		<constructor-arg>
+			<value>100</value>
+		</constructor-arg>
+
+		<constructor-arg>
+			<value>Kajal</value>
+		</constructor-arg>
+
+		<constructor-arg>
+			<value>Trainee</value>
+		</constructor-arg>
+
+		<constructor-arg>
+			<ref bean="current" />
+		</constructor-arg>
+	</bean>
+
+
+</beans>
